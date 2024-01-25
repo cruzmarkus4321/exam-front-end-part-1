@@ -1,0 +1,507 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    padding-top: 120px;
+    background: radial-gradient(circle at bottom, #237BBA, #092665 70%);
+    color: white;
+}
+
+footer {
+    padding: 20px 0;
+    height: 200px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.fa-check {
+    color: green;
+    font-weight: bold;
+}
+
+.fa-star {
+    color: #D79109;
+    font-weight: bold;
+    margin-left: 2px;
+    margin-top: 7px;
+}
+
+.header-text {
+    font-family: GothamRegular, sans-serif;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    font-family: GothamRegular, sans-serif;
+    font-size: 14px;
+    color: #919aa2;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    font-family: GothamRegular;
+    font-size: 20px;
+}
+
+.input-container input {
+    padding: 10px;
+    padding-left: 70px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    width: 80%;
+    height: 65px;
+    box-sizing: border-box;
+    position: relative;
+    font-family: GothamRegular;
+}
+
+.input-container input:focus {
+    outline: none;
+    box-shadow: 0 0 20px #237BBA;
+}
+
+.number-with-border {
+    font-family: GothamBold;
+    position: absolute;
+    top: 71%;
+    left: 15px;
+    transform: translateY(-50%);
+    border: 2px solid #D78F00;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #D78F00;
+    color: #fff;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container input::placeholder {
+    font-family: GothamRegular;
+    color: #999;
+}
+
+.input-text-bottom {
+    font-family: GothamLight;
+    font-size: 21px;
+    margin-left: 100px;
+}
+
+.input-text-bottom a {
+    color: white;
+}
+
+.styled-select {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 50px;
+    width: 80%;
+    height: 65px;
+}
+
+.styled-select select {
+    width: 100%;
+    height: 65px;
+    padding: 10px;
+    padding-left: 70px;
+    font-size: 14px;
+    border: none;
+    box-sizing: border-box;
+    background-color: #fff;
+    appearance: none;
+    font-family: GothamRegular;
+    font-size: 16px;
+    color: #999;
+}
+
+.input-container .styled-select select:focus {
+    outline: none;
+    box-shadow: 0 0 20px #237BBA;
+}
+
+.input-container .styled-select select.selector {
+    background-color: #fff;
+    color: #BDD4E4;
+    font-family: GothamRegular;
+    font-size: 15px;
+}
+
+.chevron-down {
+    position: absolute;
+    top: 50%;
+    right: 175px;
+    transform: translateY(20%);
+    color: #999;
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.number-with-border2 {
+    font-family: GothamBold;
+    position: absolute;
+    top: 68%;
+    left: 15px;
+    transform: translateY(-50%);
+    border: 2px solid #D78F00;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #D78F00;
+    color: #fff;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dialog {
+    display: none;
+    position: absolute;
+    left: 70px;
+    width: 250px;
+    background-color: #FFFFFF;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    font-family: GothamRegular;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 50px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeInOut 0.3s ease-in-out;
+    width: 700px;
+    height: 475px;
+}
+
+.modal-content-other-categories {
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeInOut 0.3s ease-in-out;
+    width: 900px;
+    height: 650px;
+}
+
+.modal-content-review {
+    background: #fff;
+    padding: 50px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeInOut 0.3s ease-in-out;
+    width: 700px;
+    height: 750px;
+}
+
+@keyframes fadeInOut {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+
+.number-with-border3 {
+    font-family: GothamBold;
+    position: absolute;
+    top: 66px;
+    left: 47px;
+    transform: translateY(-50%);
+    border: 2px solid #D78F00;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #D78F00;
+    color: #fff;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step3-modal-top-text {
+    margin-left: 75px;
+    font-family: GothamLight;
+    font-size: 20px;
+}
+
+.other-categories-modal-top-text {
+    font-family: GothamRegular;
+    font-size: 20px;
+}
+
+.other-categories-modal-sub-text {
+    font-family: GothamLight;
+    font-size: 15px;
+}
+
+.other-categories-modal-text {
+    font-family: GothamLight;
+    font-size: 15px;
+    color: #3272B7;
+    text-decoration: none;
+    margin: 6px 5px;
+}
+
+.review-top-container {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: start;
+    border-bottom: 1px solid #000;
+}
+
+.review-user-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #000;
+}
+
+.review-top-text {
+    font-family: GothamRegular;
+    font-size: 25px;
+}
+
+.review-user-text {
+    font-family: GothamMedium;
+    font-size: 28px;
+}
+
+.review-state-text {
+    font-family: GothamRegular;
+    font-size: 20px;
+    color: #999;
+}
+
+.review-dept-text {
+    font-family: GothamRegular;
+    font-size: 20px;
+}
+
+.review-ratings-container {
+    padding: 20px;
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.review-type-text {
+    font-family: GothamRegular;
+    font-size: 15px;
+}
+
+.review-rating-row {
+    font-size: 13px;
+    margin-left: 100px;
+    margin-top: -0.75px;
+}
+
+.review-reviewer-container {
+    padding: 20px;
+    display: flex;
+}
+
+.review-reviewer-info {
+    font-family: GothamMedium;
+    font-size: 14px;
+}
+
+.review-reviewer-review {
+    font-family: GothamRegular;
+    font-size: 14px;
+    text-align: start;
+}
+
+.close-btn-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #1D00FF;
+    font-family: GothamLight;
+    font-size: 16px;
+}
+
+.close-btn-text:hover {
+    text-decoration: underline;
+}
+
+
+
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    padding-right: 0;
+}
+
+.custom-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.custom-checkbox:checked {
+    background-color: #0E347C;
+    border: 2px solid #0E347C;
+}
+
+.checkbox-label {
+    font-family: GothamLight;
+    font-size: 16px;
+    color: #333;
+}
+
+.custom-button {
+    background-color: #0E347C;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    width: 225px;
+    height: 50px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: GothamRegular;
+}
+
+.custom-button:hover {
+    background-color: #265994;
+}
+
+.custom-button:active {
+    background-color: #0A2C5F;
+}
+
+
+
+.reviews-top-text {
+    font-family: GothamLight, sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.review-container {
+    margin: 10px 10px 10px 10px;
+    padding-bottom: 10px;
+    border-bottom: #237abd 1px solid;
+}
+
+.review-container-no-border {
+    margin: 10px 10px 10px 10px;
+    padding-bottom: 20px;
+}
+
+.reviewer-picture {
+    width: 60px;
+    height: 60px;
+}
+
+.reviewer-name-top {
+    font-family: GothamMedium, sans-serif;
+    font-size: 13px;
+    color: white;
+}
+
+.reviewer-name-bottom {
+    font-family: GothamLight, sans-serif;
+    font-size: 13px;
+    color: white;
+}
+
+.reviewer-department {
+    font-family: GothamMedium, sans-serif;
+    font-size: 15px;
+    color: white;
+}
+
+.reviewer-review {
+    font-family: GothamLightItalic, sans-serif;
+    font-size: 11px;
+    color: white;
+}
+
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #CEB84F;
+    font-size: 14px;
+}
+
+.icon-button i {
+    margin-left: 8px;
+}

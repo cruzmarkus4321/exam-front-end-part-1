@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Match</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/fonts.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top pt-4" style="background-color: white;">
+        <div class="container d-flex justify-content-between">
+            <img src="./src/images/lm-logo-header.png" />
+            <div>
+                <p class="header-text"><i class="fas fa-check"></i> No fee to present your case</p>
+                <p class="header-text"><i class="fas fa-check"></i> Choose from lawyers in your area</p>
+                <p class="header-text"><i class="fas fa-check"></i> A 100% confidential service</p>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid mt-4">
+        <div class="container">
+            <h1 style="font-family: GothamLight, sans-serif;">Find a Lawyer for your Legal Issue</h1>
+            <h3 style="font-family: GothamMedium, sans-serif;">Fast, Free and Confidential</h3>
+            <div class="row" style="height: 300px">
+                <div class="col d-flex flex-column justify-content-center">
+                    <div class="input-container mb-5">
+                        <label class="mb-3" for="custom-input">Enter Zip Code or City:</label>
+                        <div class="number-with-border">1</div>
+                        <input type="text" id="custom-input" placeholder="Does not have to be where you live"
+                            oninput="checkInput()" onblur="removeDialog()">
+                        <div id="dialog">
+                            <div class="d-flex justify-content-center">
+                                <p class="me-2">Nowheresville, XX</p>
+                                <p style="color: #49B2FF">00000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <label class="mb-3" for="custom-input1">Choose a category:</label>
+                        <div class="number-with-border2">2</div>
+                        <div class="styled-select">
+                            <select id="select-input" onchange="checkSelected()">
+                                <option value="" selected disabled>
+                                    Click to choose a legal category
+                                </option>
+                                <option value="1">Family</option>
+                                <option value="2">Criminal Defense</option>
+                                <option value="3">Business</option>
+                                <option value="4">Personal Injury</option>
+                                <option value="5">Bankruptcy & Finances</option>
+                                <option value="6">Products & Services</option>
+                                <option value="7">Employment</option>
+                                <option value="8">Real Estate</option>
+                                <option value="9">Immigration</option>
+                                <option value="10">Will, Trusts & Estates</option>
+                                <option value="11">Government</option>
+                                <option value="12">Intellectual Property</option>
+                            </select>
+                        </div>
+                        <div class="chevron-down">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="">
+                        <p class="input-text-bottom">
+                            Can't find your category?
+                            <a href="#" onclick="openModal('otherCategoriesModal')">
+                                Click here
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-5 d-flex flex-column">
+                    <p class="reviews-top-text mb-2"> Clients review LegalMatch lawyers</p>
+                    <div class="row review-container">
+                        <div class="col-3 d-flex flex-column align-items-center">
+                            <img class="reviewer-picture" src="./src/images/mitchell-pic.png" />
+                            <p class="reviewer-name-top mt-2">Mitchel M.</p>
+                            <p class="reviewer-name-bottom">Cherry Hill, NJ</p>
+                        </div>
+                        <div class="col-9 d-flex flex-column align-items-start">
+                            <div class="d-flex">
+                                <p class="reviewer-department mt-1 mb-3 me-4">Family Law</p>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="reviewer-review">"Lorem ipsum dolor sit amet, consectetur adipscing elit, sed
+                                do elusmod tempor incldidunt ut labore et..."</p>
+                            <a href="#" class="icon-button align-self-end" onclick="openModal('reviewModal')">
+                                Read Review
+                                <i class="fas fa-book-open"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row review-container">
+                        <div class="col-3 d-flex flex-column align-items-center">
+                            <img class="reviewer-picture" src="./src/images/joel-pic.png" />
+                            <p class="reviewer-name-top mt-2">Joel C.</p>
+                            <p class="reviewer-name-bottom">Little Rock, AK</p>
+                        </div>
+                        <div class="col-9 d-flex flex-column align-items-start">
+                            <div class="d-flex">
+                                <p class="reviewer-department mt-1 mb-3 me-4">Job & Employment Law</p>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="reviewer-review">"Lorem ipsum dolor sit amet, consectetur adipscing elit, sed
+                                do elusmod tempor incldidunt ut labore et..."</p>
+                            <a href="#" class="icon-button align-self-end" onclick="openModal('reviewModal')">
+                                Read Review
+                                <i class="fas fa-book-open"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row review-container-no-border">
+                        <div class="col-3 d-flex flex-column align-items-center">
+                            <img class="reviewer-picture" src="./src/images/brigida-pic.png" />
+                            <p class="reviewer-name-top mt-2">Brigida R.</p>
+                            <p class="reviewer-name-bottom">Dallas, TX</p>
+                        </div>
+                        <div class="col-9 d-flex flex-column align-items-start">
+                            <div class="d-flex">
+                                <p class="reviewer-department mt-1 mb-3 me-4">Family Law</p>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="reviewer-review">"Lorem ipsum dolor sit amet, consectetur adipscing elit, sed
+                                do elusmod tempor incldidunt ut labore et..."</p>
+                            <a href="#" class="icon-button align-self-end" onclick="openModal('reviewModal')">
+                                Read Review
+                                <i class="fas fa-book-open"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="step3Modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="close-btn-step3" class="close-btn" onclick="closeModal('step3Modal')">&times;</span>
+            <div class="d-flex mb-4">
+                <div class="number-with-border3">3</div>
+                <p class="step3-modal-top-text">Which <b>Family Law</b> issue(s) apply to your case?</p>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="row">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="myCheckbox1" class="custom-checkbox">
+                            <label for="myCheckbox1" class="checkbox-label">Adoptions</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="myCheckbox2" class="custom-checkbox">
+                            <label for="myCheckbox2" class="checkbox-label">Guardianship</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="myCheckbox3" class="custom-checkbox">
+                            <label for="myCheckbox3" class="checkbox-label">Child Custody and Visitation</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="myCheckbox4" class="custom-checkbox">
+                            <label for="myCheckbox4" class="checkbox-label">Paternity</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="myCheckbox5" class="custom-checkbox">
+                            <label for="myCheckbox5" class="checkbox-label">Child Support</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="myCheckbox6" class="custom-checkbox">
+                            <label for="myCheckbox6" class="checkbox-label">Separations</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="myCheckbox7" class="custom-checkbox">
+                            <label for="myCheckbox7" class="checkbox-label">Divorce</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="myCheckbox8" class="custom-checkbox">
+                            <label for="myCheckbox8" class="checkbox-label">Spousal Support or Alimony</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <button class="custom-button">FIND A LAWYER NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="otherCategoriesModal" class="modal">
+        <div class="modal-content-other-categories">
+            <span id="close-btn-other-cat" class="close-btn" onclick="closeModal('otherCategoriesModal')">&times;</span>
+            <div class="d-flex flex-column align-items-start mb-4">
+                <p class="other-categories-modal-top-text">OTHER CATEGORIES</p>
+                <p class="other-categories-modal-sub-text">Choose the category that best fits your case</p>
+            </div>
+            <div class="row mb-4">
+                <div class="col d-flex flex-column align-items-start">
+                    <a href="#" class="other-categories-modal-text">Abuse (Child, Domestic, Sexual)</a>
+                    <a href="#" class="other-categories-modal-text">Agencies & Administration</a>
+                    <a href="#" class="other-categories-modal-text">Automobile (DUI, Crimes, Speeding)</a>
+                    <a href="#" class="other-categories-modal-text">Automobile (Accidents, Insurance)</a>
+                    <a href="#" class="other-categories-modal-text">Banking (Business, Consumer)</a>
+                    <a href="#" class="other-categories-modal-text">Bars & Restaurants</a>
+                    <a href="#" class="other-categories-modal-text">Business Formation & Dissolution</a>
+                    <a href="#" class="other-categories-modal-text">Children (Adoption, Custody, Support)</a>
+                    <a href="#" class="other-categories-modal-text">Class Actions (Bad Drugs, Products)</a>
+                    <a href="#" class="other-categories-modal-text">Commercial Law and Contracts</a>
+                    <a href="#" class="other-categories-modal-text">Commercial Real Estate</a>
+                    <a href="#" class="other-categories-modal-text">Constitutional Law</a>
+                    <a href="#" class="other-categories-modal-text">Construction (Disputes, Liens)</a>
+                    <a href="#" class="other-categories-modal-text">Categories Item Here</a>
+                </div>
+                <div class="col d-flex flex-column align-items-start">
+                    <a href="#" class="other-categories-modal-text">Abuse (Child, Domestic, Sexual)</a>
+                    <a href="#" class="other-categories-modal-text">Agencies & Administration</a>
+                    <a href="#" class="other-categories-modal-text">Automobile (DUI, Crimes, Speeding)</a>
+                    <a href="#" class="other-categories-modal-text">Automobile (Accidents, Insurance)</a>
+                    <a href="#" class="other-categories-modal-text">Banking (Business, Consumer)</a>
+                    <a href="#" class="other-categories-modal-text">Bars & Restaurants</a>
+                    <a href="#" class="other-categories-modal-text">Business Formation & Dissolution</a>
+                    <a href="#" class="other-categories-modal-text">Children (Adoption, Custody, Support)</a>
+                    <a href="#" class="other-categories-modal-text">Class Actions (Bad Drugs, Products)</a>
+                    <a href="#" class="other-categories-modal-text">Commercial Law and Contracts</a>
+                    <a href="#" class="other-categories-modal-text">Commercial Real Estate</a>
+                    <a href="#" class="other-categories-modal-text">Constitutional Law</a>
+                    <a href="#" class="other-categories-modal-text">Construction (Disputes, Liens)</a>
+                    <a href="#" class="other-categories-modal-text">Categories Item Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reviewModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content-review">
+            <span id="close-btn-review" class="close-btn" onclick="closeModal('reviewModal')">&times;</span>
+            <div class="review-top-container">
+                <p class="review-top-text">CLIENT REVIEWS</p>
+            </div>
+            <div class="review-user-container">
+                <div class="row mb-4">
+                    <div class="col-3 d-flex justify-content-start">
+                        <img src="./src/images/brigida-pic2.png"/>
+                    </div>
+                    <div class="col-9 d-flex flex-column align-items-start">
+                        <p class="review-user-text">Brigida R.</p>
+                        <p class="review-state-text">Dallas, TX</p>
+                        <p class="review-dept-text">Family Law</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-start align-items-end">
+                        <p class="review-top-text me-2">Rating</p>
+                        <p class="review-top-text me-4" style="font-size: 22px; margin-bottom: 2px;">(29 users)</p>
+                        <div class="mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star" style="color: #666666;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row review-ratings-container">
+                <div class="col-6 d-flex flex-column align-items-start">
+                    <p class="review-type-text" style="font-weight: bold;">Overall</p>
+                    <p class="review-type-text">Responded in a timely manner</p>
+                    <p class="review-type-text">Answered questions clearly</p>
+                    <p class="review-type-text">Understood needs</p>
+                    <p class="review-type-text">Gave complete and clear information</p>
+                    <p class="review-type-text">Knowledgable in legal area</p>
+                    <p class="review-type-text">Good value for money</p>
+                    <p class="review-type-text">Would hire again</p>
+                    <p class="review-type-text">Would recommend to friend</p>
+                </div>
+                <div class="col-6 d-flex flex-column align-items-center">
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star" style="color: #666666;"></i>
+                    </div>
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star" style="color: #666666;"></i>
+                    </div>
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star" style="color: #666666;"></i>
+                    </div>
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star" style="color: #666666;"></i>
+                    </div>
+                    <div class="review-rating-row">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row review-reviewer-container">
+                <div class="d-flex justify-content-start align-items-end mb-4">
+                    <div class="me-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star" style="color: #666666;"></i>
+                    </div>
+                    <p class="review-reviewer-info">by Dexter Marchal, 06/10/2016</p>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <p class="review-reviewer-review">Deb did a great job. Got my bench warrant set aside... was sure I was going to jail... phew. Judge seemed to respect her and I got what I</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="#" class="close-btn-text" onclick="closeModal('reviewModal')">
+                    CLOSE
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container text-center">
+        <div class="row" style="height: 100%">
+            <div class="col-3 d-flex flex-column align-items-start">
+                <img src="./src/images/lm-logo.png" width="204px" height="69px" />
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                <div class="d-flex justify-content-between mb-4" style="width: 60%;">
+                    <p class="footer-text">User Agreement</p>
+                    <p class="footer-text">•</p>
+                    <p class="footer-text">Privacy Policy</p>
+                    <p class="footer-text">•</p>
+                    <p class="footer-text">Site Map</p>
+                </div>
+                <p class="footer-text">
+                    Copyright 1999-2016 LegalMatch. All rights reserved. LegalMatch, <br />
+                    the LegalMatch log, and the tradedress are trademarks of LegalMatch. Patents Pending.
+                </p>
+            </div>
+            <div class="col-3 d-flex flex-column align-items-end">
+                <img class="mb-1" src="./src/images/truste.png" width="115px" height="39px" />
+                <img src="./src/images/bbb.png" width="115px" height="56px" />
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./src/js/functions.js"></script>
+</body>
+
+</html>
